@@ -9,7 +9,7 @@ var nfcList = {
     '4ffffff97ffffff80ffffff82ffffffeb2bffffff86': { index: 7, clean: 0 },
     '4ffffff97ffffff80ffffff82ffffffeb2bffffff87': { index: 8, clean: 0 },
     '4ffffff97ffffff80ffffff82ffffffeb2bffffff88': { index: 9, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff89': { index: 10, clean: 0 },
+    '4ffffff97ffffff80ffffff82ffffffeb2bffffff89': { index: 10, clean: 0 }
 }
 
 var getColor = function(key) {

@@ -44,7 +44,7 @@ $(function () {
         for (var key in nfcList) {
             nfcList[key]['clean'] = 0;
             // setup Color
-            var index = nfcList[key]['index'];
+            var index = nfcList[key][index];
             var color = getColor(key);
             placeElems.eq(index).css("background-color", color);
         }
