@@ -2,16 +2,16 @@
 
 var webSocket = new WebSocket('ws://colocolo.mybluemix.net/ws/nfc');
 var nfcList = {
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff80': { index: 1, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff81': { index: 2, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff82': { index: 3, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff83': { index: 4, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff84': { index: 5, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff85': { index: 6, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff86': { index: 7, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff87': { index: 8, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff88': { index: 9, clean: 0 },
-    '4ffffff97ffffff80ffffff82ffffffeb2bffffff89': { index: 10, clean: 0 }
+    '4ffffff97ffffff80ffffff82ffffffeb2bffffff80': { index: 1, clean: 23 },
+    '4ffffffdaffffff80ffffff82ffffffeb2bffffff80': { index: 2, clean: 0 },
+    '4fffffffcffffff80ffffff82ffffffeb2bffffff80': { index: 3, clean: 10 },
+    '4ffffffb77fffffff82ffffffeb2bffffff80': { index: 4, clean: 16 },
+    '4ffffffbbffffff80ffffff82ffffffeb2bffffff80': { index: 5, clean: 0 },
+    '4ffffffbcffffff80ffffff82ffffffeb2bffffff80': { index: 6, clean: 63 },
+    '4ffffffd67fffffff82ffffffeb2bffffff80': { index: 7, clean: 0 },
+    '41a7fffffff82ffffffeb2bffffff81': { index: 8, clean: 34 },
+    '4ffffffd57fffffff82ffffffeb2bffffff80': { index: 9, clean: 0 },
+    '4fffffff87fffffff82ffffffeb2bffffff80': { index: 10, clean: 0 }
 };
 
 var getColor = function getColor(key) {
@@ -24,6 +24,12 @@ var getColor = function getColor(key) {
 
 $(function () {
     var placeElems = $(".col p");
+
+    for (var key in nfcList) {
+        var index = nfcList[key]['index'];
+        var color = getColor(key);
+        placeElems.eq(index).css("background-color", color);
+     }
 
     webSocket.onmessage = function (event) {
         var nfcID = event.data;
@@ -39,6 +45,11 @@ $(function () {
         var color = getColor(nfcID);
         placeElems.eq(index).css("background-color", color);
     };
+
+    $("p").click(function() {
+	$(this).getIndex();
+	
+    });
 
     $("h1").click(function () {
         for (var key in nfcList) {
