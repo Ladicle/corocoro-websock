@@ -41,7 +41,7 @@ $(function() {
 
     $("h1").click(function(){
 	for ( var key in nfcList ) {
-	    nfcList[key][clean] = 0
+	    nfcList[key]['clean'] = 0
 	    // setup Color
 	    var index = nfcList[key][index]
 	    var color = getColor(key)
