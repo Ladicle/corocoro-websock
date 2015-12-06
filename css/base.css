@@ -1,0 +1,29 @@
+h1 {
+  color: #ffa100;
+}
+body {
+  background: #eee;
+}
+#wrapper {
+  width: 338px;
+  margin: 80px auto;
+}
+.col {
+  width: 338px;
+  display: inline-block;
+}
+.col p {
+  color: #fff;
+  background: #fff;
+  border: solid 1px #333;
+  width: 100px;
+  height: 100px;
+  margin: 0 0 8px 8px;
+  float: left;
+  border-radius: 8px;
+}
+a {
+  color: #ffa100;
+  -webkit-transition: color 0.1s ease-in-out;
+          transition: color 0.1s ease-in-out;
+}
